@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --fondo_claro: #f7f7f7;
+    --primario: #005eb8; /* Botones principales, encabezados y elementos de acción. */
+    --secundario: #ff6f61;
+    --texto_principal: #333333;
+    --texto_secundario: #666666;
+    --bordes_lineas: #d1d1d1;
+    --exito: #28a745;
+    --advertencia: #ffc107;
+    --alerta: #dc3545;
+}
+
+html {
+    font-size: 18px;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    overflow: hidden;
+}
+
+.header {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 2px solid var(--bordes_lineas);
+}
+.header__btn {
+    /* display: none; */
+    position: absolute;
+    cursor: pointer;
+}
+
+.header__btn .las {
+    font-size: 2rem;
+    transition: transform 250ms ease;
+}
+.header__btn .las:hover {
+    /* color: red; */
+    transform: scale(1.06);
+}
+.header__btn .las:active {
+    transform: scale(0.85);
+}
+.header__title {
+    width: 100%;
+    text-align: center;
+}
+.header__title .title {
+    color: var(--primario);
+}
+.header__title .subtitle {
+    color: var(--texto_principal);
+}
