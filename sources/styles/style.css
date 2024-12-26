@@ -93,6 +93,7 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    z-index: 100;
 }
 
 .lists__ul {
@@ -148,5 +149,59 @@ main {
 
 
 .cnt__btns button:active {
+    transform: scale(0.97);
+}
+
+.cnt__form {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    max-height: 600px;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--texto_principal);
+    border-radius: 3rem 3rem 0 0;
+    z-index: 10000;
+    background-color: var(--fondo_claro);
+    display: none;
+}
+
+.form__lists {
+    position: relative;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.form__lists input[type=text] {
+    border: none;
+    background-color: var(--fondo_claro);
+    border-bottom: 1px solid var(--texto_secundario);
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form__lists input[type=button] {
+    width: 60%;
+    max-width: 250px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: .3rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    transition: transform 250ms ease;
+    background-color: var(--primario);
+    color: var(--fondo_claro);
+}
+
+.form__lists input[type=button]:active {
     transform: scale(0.97);
 }
