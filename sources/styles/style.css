@@ -87,13 +87,16 @@ main {
     height: calc(100% - 80px);
 }
 
-.container {
+.container__list {
     padding: 15px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     z-index: 100;
+}
+.hidden{
+    display: none;
 }
 
 .lists__ul {
@@ -204,4 +207,66 @@ main {
 
 .form__lists input[type=button]:active {
     transform: scale(0.97);
+}
+
+/* Estilos items de lista */
+.header__items{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15px 0px 15px;
+}
+
+.cnt_table{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+table{
+    padding: 10px;
+    display: block;
+}
+
+tbody, thead, tr {
+    display: block;
+}
+
+tr{
+    display: flex;
+    justify-content: space-between; 
+    padding: 5px 10px;
+}
+td, th{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+tbody tr{
+    /* font-size: 1.2rem; */
+    margin-bottom: 5px;
+    /* padding: 5px 10px; */
+    border-radius: .3rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+
+
+
+.table__input {
+    width: 100%;
+    color: var(--texto_principal);
+    text-align: center;
+    border: none;
+    background-color: var(--fondo_claro);
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.left {
+    text-align: left;
+}
+.right {
+
+    text-align: right;
 }
