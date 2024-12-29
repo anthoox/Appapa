@@ -22,9 +22,10 @@
 
         <div class="container__list ">
             <div class="header__items">
-                <h2>Total: 2.20€</h2>
+                <h2>Total: 0.00€</h2>
             </div>
 
+            <!-- OFERTAS -->
             <div class="cnt__offers">
                 <div class="offers">
                     <h3 class="offer offers__title">Promos:</h3>
@@ -36,10 +37,9 @@
                     <div class="offer segCincuenta">2u50</div>
                     <div class="offer terCincuenta">3u50</div>
                 </div>
-
-
             </div>
 
+            <!-- TABLA -->
             <div class="cnt__table">
                 <table class="table">
                     <thead>
@@ -57,34 +57,36 @@
                 </table>
             </div>
 
+            <!-- BOTON -->
             <div class="cnt__btns">
                 <button id="btn__addProduct" class="btn__item">Añadir producto</button>
             </div>
 
+            <!-- FORMULARIO -->
             <div class="cnt__form hidden">
                 <form action="" class="form__item">
                     <div class="cnt__input">
                         <label for="">Precio</label>
-                        <input type="number" id="price">
+                        <input type="number" id="price" required >
                     </div>
                     <div class="cnt__input">
-                        <label for="">Oferta</label>
-                        <select name="" id="">
-                            <option class="option" value="0" selected>--</option>
-                            <option class="option tresPorDos" value="1">3x2</option>
-                            <option class="option dosPorUno" value="2">2x1</option>
-                            <option class="option segSetenta" value="3">2u70</option>
-                            <option class="option segCincuenta" value="4">2u50</option>
-                            <option class="option terCincuenta" value="5">3u50</option>
+                        <label for="selectOffers">Oferta</label>
+                        <select name="selectOffers" id="selectOffers">
+                            <option id="unOffer" class="option" value="0" selected>--</option>
+                            <option id="offerOne" class="option tresPorDos" value="1">3x2</option>
+                            <option id="offerTwo" class="option dosPorUno" value="2">2x1</option>
+                            <option id="offerThree" class="option segSetenta" value="3">2u70</option>
+                            <option id="offerFour" class="option segCincuenta" value="4">2u50</option>
+                            <option id="offerFive" class="option terCincuenta" value="5">3u50</option>
                         </select>
                     </div>
                     <div class="cnt__input">
-                        <label for="">Unidades</label>
-                        <input type="number">
+                        <label for="units">Unidades</label>
+                        <input type="number" id="units" value="1" >
                     </div>
                     <div class="cnt__input">
-                        <label for="">Nombre</label>
-                        <input type="text">
+                        <label for="nameProducto">Nombre</label>
+                        <input type="text" id="nameProducto">
                     </div>
 
                     <input type="button" value="Añadir" id="btn__createProduct">
@@ -93,8 +95,9 @@
             </div>
         </div>
     </main>
-    <script src="/sources/scripts/script.js"></script>
-    <script src="/sources/scripts/ui.js"></script>
+    <script type="module" src="/sources/scripts/validations.js"></script>
+    <script type="module" src="/sources/scripts/script.js"></script>
+    <script type="module" src="/sources/scripts/ui.js"></script>
 </body>
 
 </html>

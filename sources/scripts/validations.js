@@ -1,9 +1,13 @@
 export function validateTextInput(input){
     // eliminamos los espacions vacios del valor del input.
-    const value = input.value.trim();
+    let value = input.value;
 
     if(value === ""){
-        input.style.border = '2px solid red';
-        return false;
+        value = "Obj"
+        return value;
+
+    }else{
+        return value;
     }
 }
+
