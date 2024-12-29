@@ -19,11 +19,11 @@
     --alerta: #dc3545;
 
     /* Promociones */
-    --tresPorDos: #FFC300;
-    --dosPorUno: #4CAF50;
-    --segSetenta: #7E57C2;
-    --segCincuenta: #42A5F5;
-    --terCincuenta: #FF7043;
+    --tresPorDos: #006d77;
+    --dosPorUno: #9b2226;
+    --segSetenta: #003049;
+    --segCincuenta: #264653;
+    --terCincuenta: #7f5539;
 }
 
 html {
@@ -112,35 +112,50 @@ main {
 }
 
 .cnt__offers {
+    max-width: 700px;
     width: 100%;
-    max-width: 500px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 5px 10px;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.offers{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .offer {
-    padding: 2px 5px;
+    background-color: var(--texto_principal);
+    width: 80px;
     text-align: center;
     border-radius: .3rem;
+    color: var(--fondo_claro);
+}
+.offers__title {
     color: var(--texto_principal);
+    background-color: var(--fondo_claro);
 }
 
-.cnt_table {
+.cnt__table {
     width: 100%;
-    padding: 20px;
     display: flex;
 }
 
 table {
     padding: 10px;
     display: block;
+    width: 100%;
 }
 
 tbody,
 thead,
 tr {
     display: block;
+    
 }
 
 tr {
@@ -225,23 +240,6 @@ select {
     bottom: 0;
     width: 300px;
 }
-
-/* .container__list .cnt__form {
-
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    max-height: 600px;
-    height: 300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid var(--texto_principal);
-    border-radius: 3rem 3rem 0 0;
-    z-index: 10000;
-    background-color: var(--fondo_claro);
-} */
 
 
 
