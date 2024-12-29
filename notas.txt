@@ -1,0 +1,12 @@
+fecha y hora 👍
+sumar precios
+aplicar ofertas
+suma total
+pruebas y errores
+correcciones y cambios
+subir
+pruebas y errores subido
+correciones y cambios
+re-subir
+
+he arreglado lo del boton de enter para no enviar siempre con el formulario aunq no este

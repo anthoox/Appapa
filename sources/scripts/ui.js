@@ -1,9 +1,9 @@
 import { validateTextInput } from './validations.js';
 import { validateInput } from './validations.js';
-import { clearInputs } from './script.js';
+import { clearInputs, dateTime, totalPrice } from './script.js';
 
 
-
+// FORMULARIO
 const btnAddList = document.getElementById('btn__addProduct');
 const formAddList = document.querySelector('.cnt__form');
 const btnCloseForm = document.querySelector('.btn__close');
@@ -31,10 +31,7 @@ const form = document.querySelector('.form__item');
 // Array para almacenar los datos del formulario
 const formDataArray = [];
 
-
-
-
-// Añadiento evento click para btnAddProduct
+// Añadiento evento click para añadir producto con btnAddProduct
 btnAddProduct.addEventListener('click', () => {
     // Objeto para almacenar los datos
     const formData = {};
@@ -43,12 +40,12 @@ btnAddProduct.addEventListener('click', () => {
 
     // Configuración para validar que el campo Precio tenga valor
     let isValid = true;
-        const value = validateInput(inputs[0]);
-        if (!value) {
-            isValid = false; // Si algún campo no es válido, detenemos el proceso
-        } else {
-            formData[inputs[0].id] = value.trim(); // Guardamos el valor validado
-        }
+    const value = validateInput(inputs[0]);
+    if (!value) {
+        isValid = false; // Si algún campo no es válido, detenemos el proceso
+    } else {
+        formData[inputs[0].id] = value.trim(); // Guardamos el valor validado
+    }
 
     if (!isValid) return; // Si hay errores, no se procesa más
 
@@ -58,7 +55,7 @@ btnAddProduct.addEventListener('click', () => {
         const key = input.id
         // Validación de los inputs
         const value = validateTextInput(input)
-        if(value){
+        if (value) {
             formData[key] = value.trim();
         }
     })
@@ -72,7 +69,7 @@ btnAddProduct.addEventListener('click', () => {
         const tableBody = document.querySelector('tbody');
         const itemTable = document.createElement('tr')
 
-        const selectValue =  product.selectOffers ;
+        const selectValue = product.selectOffers;
 
         itemTable.innerHTML = `
         <td>
@@ -92,7 +89,7 @@ btnAddProduct.addEventListener('click', () => {
             </select>
         </td>
         <td class="right">
-            <input class="table__input right" type="number" value="${product.price}">
+            <input class="input__number table__input right" type="number" value="${product.price}">
 
         </td>`
 
@@ -102,7 +99,7 @@ btnAddProduct.addEventListener('click', () => {
         // Selección de elemento select 
         const selectElement = itemTable.querySelector('select');
         // Asignación del valor seleccionado por el usuario 
-        selectElement.value = selectValue; 
+        selectElement.value = selectValue;
 
     })
 
@@ -111,6 +108,9 @@ btnAddProduct.addEventListener('click', () => {
     // Vaciar array para volver a generarlo vacio
     formDataArray.length = 0;
 
+    // PRECIO TOTAL
+    const itemsTotalPrice = document.querySelector('.header__items');
+    itemsTotalPrice.innerHTML = totalPrice();
 
     // Ocultar formulario de listas
     if (!formAddList.classList.contains('hidden')) {
@@ -122,7 +122,7 @@ btnAddProduct.addEventListener('click', () => {
 document.addEventListener('keydown', function (event) {
 
 
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && (!formAddList.classList.contains('hidden'))) {
         event.preventDefault();
         // Objeto para almacenar los datos
         const formData = {};
@@ -180,7 +180,7 @@ document.addEventListener('keydown', function (event) {
             </select>
         </td>
         <td class="right">
-            <input class="table__input right" type="number" value="${product.price}">
+            <input class="input__number table__input right" type="number" value="${product.price}">
 
         </td>`
 
@@ -193,11 +193,16 @@ document.addEventListener('keydown', function (event) {
             selectElement.value = selectValue;
 
         })
+        
+        // PRECIO TOTAL
+        const itemsTotalPrice = document.querySelector('.header__items');
+        itemsTotalPrice.innerHTML = totalPrice();
 
         clearInputs();
 
         // Vaciar array para volver a generarlo vacio
         formDataArray.length = 0;
+
 
 
         // Ocultar formulario de listas
@@ -206,3 +211,12 @@ document.addEventListener('keydown', function (event) {
         }
     }
 });
+
+
+// RELOJ FECHA-HORA
+const subTitleTime = document.querySelector('.subtitle');
+setInterval(() => {
+    subTitleTime.innerHTML = dateTime();
+}, 1000)
+
+

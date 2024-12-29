@@ -3,7 +3,7 @@ export function validateTextInput(input){
     let value = input.value;
 
     if(value === ""){
-        value = "Obj"
+        value = "S/N"
         return value;
 
     }else{
