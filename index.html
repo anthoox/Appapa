@@ -15,48 +15,14 @@
         <div class="header__btn"><i class="las la-angle-left"></i></div>
         <div class="header__title">
             <h1 class="title">Mi Cesta</h1>
-            <p class="subtitle">Bienvenido</p>
+            <p class="subtitle">28/12/2024 - 22:30</p>
         </div>
     </header>
     <main>
-        <div class="container hidden">
-            <div class="cnt__lists">
-                <ul class="lists__ul">
-                    <li class="list__li">
-                        <div class="name">
-                            compra
-                        </div>
-                        <div class="icon">
-                            <i class="las la-times"></i>
-                        </div>
-                    </li>
-                    <li class="list__li">
-                        <div class="name">
-                            carrefour
-                        </div>
-                        <div class="icon">
-                            <i class="las la-times"></i>
-                        </div>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="cnt__btns">
-                <button class="btn__list">Añadir nueva lista</button>
-            </div>
-
-            <div class="cnt__form">
-                <form action="" class="form__lists">
-                    <input type="text" name="name" id="" placeholder="Nombre">
-                    <input type="button" value="Crear">
-                </form>
-            </div>
-        </div>
-
-        <div class="container__list">
+        <div class="container__list ">
             <div class="header__items">
-                <h2 class="">Compra 2</h2>
-                <span>Total:<span>2€</span></span>
+                <h2>Total: 2.20€</h2>
             </div>
 
             <div class="cnt__offers">
@@ -68,7 +34,7 @@
             </div>
 
             <div class="cnt__table">
-                <table>
+                <table class="table">
                     <thead>
                         <tr>
                             <th class="left">Nombre</th>
@@ -79,8 +45,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="left">
-                                <input class="table__input" type="text" value="papasssssssssssssssssssssssssssssss">
+                            <td>
+                                <input class="left table__input" type="text" value="papass">
                             </td>
 
                             <td>
@@ -89,11 +55,12 @@
 
                             <td>
                                 <select name="" id="">
-                                    <option class="option tresPorDos" value="1"><span>3x2</span></option>
-                                    <option class="option dosPorUno" value="1"><span>2x1</span></option>
-                                    <option class="option segSetenta" value="1"><span>2u70</span></option>
-                                    <option class="option segCincuenta" value="1"><span>2u50</span></option>
-                                    <option class="option terCincuenta" value="1"><span>3u50</span></option>
+                                    <option class="option" value="0" selected>--</option>
+                                    <option class="option tresPorDos" value="1">3x2</option>
+                                    <option class="option dosPorUno" value="1">2x1</option>
+                                    <option class="option segSetenta" value="1">2u70</option>
+                                    <option class="option segCincuenta" value="1">2u50</option>
+                                    <option class="option terCincuenta" value="1">3u50</option>
                                 </select>
                             </td>
 
@@ -108,41 +75,43 @@
             </div>
 
             <div class="cnt__btns">
-                <button class="btn__item">Añadir producto</button>
+                <button id="btn__addProduct" class="btn__item">Añadir producto</button>
             </div>
 
-            <div class="cnt__form">
+            <div class="cnt__form hidden">
                 <form action="" class="form__item">
                     <div class="cnt__input">
                         <label for="">Precio</label>
-                        <input type="number">
+                        <input type="number" id="price">
                     </div>
                     <div class="cnt__input">
                         <label for="">Oferta</label>
                         <select name="" id="">
-                            <option class="option " value="0"><span>Oferta</span></option>
-                            <option class="option tresPorDos" value="1"><span>3x2</span></option>
-                            <option class="option dosPorUno" value="1"><span>2x1</span></option>
-                            <option class="option segSetenta" value="1"><span>2u70</span></option>
-                            <option class="option segCincuenta" value="1"><span>2u50</span></option>
-                            <option class="option terCincuenta" value="1"><span>3u50</span></option>
+                            <option class="option" value="0" selected>--</option>
+                            <option class="option tresPorDos" value="1">3x2</option>
+                            <option class="option dosPorUno" value="2">2x1</option>
+                            <option class="option segSetenta" value="3">2u70</option>
+                            <option class="option segCincuenta" value="4">2u50</option>
+                            <option class="option terCincuenta" value="5">3u50</option>
                         </select>
                     </div>
-                        <div class="cnt__input">
-                            <label for="">Unidades</label>
-                            <input type="number">
-                        </div>
-                        <div class="cnt__input">
-                            <label for="">Nombre</label>
-                            <input type="text">
-                        </div>
+                    <div class="cnt__input">
+                        <label for="">Unidades</label>
+                        <input type="number">
+                    </div>
+                    <div class="cnt__input">
+                        <label for="">Nombre</label>
+                        <input type="text">
+                    </div>
 
-                        <input type="button" value="Añadir">
+                    <input type="button" value="Añadir" id="btn__createProduct">
+                    <i class="btn__close las la-times"></i>
                 </form>
             </div>
         </div>
     </main>
     <script src="/sources/scripts/script.js"></script>
+    <script src="/sources/scripts/ui.js"></script>
 </body>
 
 </html>
