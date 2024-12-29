@@ -11,3 +11,19 @@ export function validateTextInput(input){
     }
 }
 
+
+
+
+// Función de validación
+export function validateInput(input) {
+    const { id, value, type } = input;
+
+    if (type === 'number') {
+        if (isNaN(value) || value.trim() === '') {
+            alert(`Debe introducir un número en Precio`);
+            return false;
+        }
+    }
+
+    return value; // Retorna el valor si es válido
+}
