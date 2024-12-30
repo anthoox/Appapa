@@ -52,7 +52,8 @@ export function sumUnits(e){
     const prices = document.querySelectorAll('.input__number');
 
     let total = 0;
-
+// QUIZA SE DEBERIA EMPEZAR POR SELECCIONAR LOS TR UNA VEZ GENERADOS 
+// Y A PARTIR DE ELLOS SUS VALORES
 
     console.log(total)
 }

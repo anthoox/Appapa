@@ -15,3 +15,9 @@ he arreglado lo del boton de enter para no enviar siempre con el formulario aunq
 Para sumar las cantidades se debe hacer de cada fila y multiplicarlos por el precio. Esto ocurrirá solo cuando no haya oferta. Creo que lo mejor será seleccionar cada tr y acceder a sus inputs
 
 Para aplicar las ofertas
+
+----
+cambiar diseño:
+quitar Nombre de tabla y formulaario
+Poner precio delante en tabla
+Añadir una columna Cuesta en tabla
