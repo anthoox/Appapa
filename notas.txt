@@ -1,5 +1,6 @@
 fecha y hora 👍
-sumar precios
+sumar precios 👍
+sumar cantidades
 aplicar ofertas
 suma total
 pruebas y errores
@@ -10,3 +11,7 @@ correciones y cambios
 re-subir
 
 he arreglado lo del boton de enter para no enviar siempre con el formulario aunq no este
+
+Para sumar las cantidades se debe hacer de cada fila y multiplicarlos por el precio. Esto ocurrirá solo cuando no haya oferta. Creo que lo mejor será seleccionar cada tr y acceder a sus inputs
+
+Para aplicar las ofertas

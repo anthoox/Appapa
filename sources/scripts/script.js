@@ -28,7 +28,7 @@ export function dateTime(){
 }
 
 // SUMAR PRECIOS
-export function totalPrice() {
+export function sumPrice() {
     const prices = document.querySelectorAll('.input__number');
     let total = 0;
 
@@ -44,3 +44,18 @@ export function totalPrice() {
     const formattedTotal = `<h2>Total: ${total}</h2>`;
     return formattedTotal;
 }
+
+
+// SUMAR CANTIDADES
+export function sumUnits(e){
+    // const units = document.querySelectorAll('.input__units');
+    const prices = document.querySelectorAll('.input__number');
+
+    let total = 0;
+
+
+    console.log(total)
+}
+
+
+// ESPACIO PARA PRUEBAS

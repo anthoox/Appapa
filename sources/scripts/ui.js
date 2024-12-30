@@ -1,6 +1,5 @@
-import { validateTextInput } from './validations.js';
-import { validateInput } from './validations.js';
-import { clearInputs, dateTime, totalPrice } from './script.js';
+import { validateTextInput, validateInput } from './validations.js';
+import { clearInputs, dateTime, sumPrice, sumUnits } from './script.js';
 
 
 // FORMULARIO
@@ -64,19 +63,20 @@ btnAddProduct.addEventListener('click', () => {
     formDataArray.push(formData);
 
     // Por cada producto se añade un nuevo elemento a la tabla
-    formDataArray.forEach(product => {
+    formDataArray.forEach((product) => {
 
         const tableBody = document.querySelector('tbody');
         const itemTable = document.createElement('tr')
 
         const selectValue = product.selectOffers;
-
+        // const keyItem = index;
+        // console.log(keyItem);
         itemTable.innerHTML = `
-        <td>
-            <input class="left table__input" type="text" value="${product.nameProducto}">
+        <td id="">
+            <input class="input__name left table__input" type="text" value="${product.nameProducto}">
         </td>
         <td>
-            <input class="table__input" type="number" value="${product.units}">
+            <input class="input__units table__input" type="number" value="${product.units}">
         </td>
         <td>
             <select name="" id="tableOffers">
@@ -110,7 +110,8 @@ btnAddProduct.addEventListener('click', () => {
 
     // PRECIO TOTAL
     const itemsTotalPrice = document.querySelector('.header__items');
-    itemsTotalPrice.innerHTML = totalPrice();
+    itemsTotalPrice.innerHTML = sumPrice();
+    sumUnits();
 
     // Ocultar formulario de listas
     if (!formAddList.classList.contains('hidden')) {
@@ -164,10 +165,10 @@ document.addEventListener('keydown', function (event) {
 
             itemTable.innerHTML = `
         <td>
-            <input class="left table__input" type="text" value="${product.nameProducto}">
+            <input class="input__name left table__input" type="text" value="${product.nameProducto}">
         </td>
         <td>
-            <input class="table__input" type="number" value="${product.units}">
+            <input class="input__units table__input" type="number" value="${product.units}">
         </td>
         <td>
             <select name="" id="tableOffers">
@@ -196,7 +197,7 @@ document.addEventListener('keydown', function (event) {
         
         // PRECIO TOTAL
         const itemsTotalPrice = document.querySelector('.header__items');
-        itemsTotalPrice.innerHTML = totalPrice();
+        itemsTotalPrice.innerHTML = sumPrice();
 
         clearInputs();
 
