@@ -1,9 +1,9 @@
+// Validación del valor de los inputs
 export function validateTextInput(input){
     // eliminamos los espacions vacios del valor del input.
     let value = input.value;
-
     if(value === ""){
-        value = "S/N"
+        value = "NULL"
         return value;
 
     }else{
@@ -14,14 +14,20 @@ export function validateTextInput(input){
 
 
 
-// Función de validación
+// Función de validación del input number
 export function validateInput(input) {
-    const { id, value, type } = input;
+    const {id, value, type } = input;
 
     if (type === 'number') {
         if (isNaN(value) || value.trim() === '') {
-            alert(`Debe introducir un número en Precio`);
-            return false;
+            if(id==='price'){
+                alert('Debe introducir el Precio');
+                return false;
+            }
+            if( id === 'units'){
+                alert('Debe introducir las Unidades');
+                return false;
+            }            
         }
     }
 

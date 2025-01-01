@@ -1,6 +1,7 @@
 fecha y hora 👍
 sumar precios 👍
 corregir tiempo 👍
+corregir js tras estilos 👍
 sumar cantidades
 aplicar ofertas
 suma total
@@ -24,3 +25,4 @@ Hacer que la cabecera no sea fixed 👍
 quitar Nombre de tabla y formulaario 👍
 Poner precio delante en tabla 👍
 Añadir una columna Cuesta en tabla 👍
+añadir outline a los dos inputs de la tabla 

@@ -1,10 +1,9 @@
 // LIMPIAR INPUTS
 export function clearInputs(){
-    // // Vaciar el valor del input
+    // Vaciar el valor del input
     document.getElementById('price').value = '';
     document.getElementById('units').value = 1;
     document.getElementById('selectOffers').value = 0;
-    document.getElementById('nameProducto').value = '';
 }
 
 // OBTENER FECHA Y HORA
@@ -15,7 +14,6 @@ export function dateTime(){
     // string.padStart(longitudTotal, caracterRelleno);
     const day = String(now.getDate()).padStart(2, '0');// Hora (con 2 dígitos)
     const month = String(now.getMonth()+1).padStart(2, '0');
-    console.log(now.getMonth())
     const year = now.getFullYear();
     // Obtener las partes de la hora
     const hours = String(now.getHours()).padStart(2,'0');
