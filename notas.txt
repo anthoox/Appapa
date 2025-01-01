@@ -1,5 +1,6 @@
 fecha y hora 👍
 sumar precios 👍
+corregir tiempo 👍
 sumar cantidades
 aplicar ofertas
 suma total
@@ -7,6 +8,7 @@ pruebas y errores
 correcciones y cambios
 subir
 pruebas y errores subido
+limpiar código
 correciones y cambios
 re-subir
 
@@ -16,9 +18,9 @@ Para sumar las cantidades se debe hacer de cada fila y multiplicarlos por el pre
 
 Para aplicar las ofertas
 
-----
+-----------------
 cambiar diseño:
 Hacer que la cabecera no sea fixed 👍
-quitar Nombre de tabla y formulaario
+quitar Nombre de tabla y formulaario 👍
 Poner precio delante en tabla 👍
 Añadir una columna Cuesta en tabla 👍

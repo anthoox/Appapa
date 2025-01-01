@@ -14,9 +14,9 @@ export function dateTime(){
     // Obtener las partes de la fecha
     // string.padStart(longitudTotal, caracterRelleno);
     const day = String(now.getDate()).padStart(2, '0');// Hora (con 2 dígitos)
-    const month = String(now.getMonth()).padStart(2, '0');
+    const month = String(now.getMonth()+1).padStart(2, '0');
+    console.log(now.getMonth())
     const year = now.getFullYear();
-
     // Obtener las partes de la hora
     const hours = String(now.getHours()).padStart(2,'0');
     const minutes = String(now.getMinutes()).padStart(2,'0');
