@@ -187,7 +187,7 @@ tbody tr {
     border: none;
     background-color: var(--fondo_claro);
     font-size: 1.25rem;
-    outline: none;
+    outline-color: var(--secundario);
 }
 
 
