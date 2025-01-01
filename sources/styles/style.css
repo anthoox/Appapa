@@ -169,6 +169,9 @@ th {
     width: 100%;
     text-align: center;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 tbody tr {
@@ -189,22 +192,26 @@ tbody tr {
 
 
 
-.left {
+/* .left {
     text-align: left;
 }
 
 .right {
 
     text-align: right;
-}
+} */
 
 select {
-    font-size: 1.25rem;
+    font-size: 1rem;
     outline: none;
     background-color: var(--fondo_claro);
     border: none;
+    color: var(--texto_principal);
 }
-
+.table__cost{
+    font-size: 1.25rem;
+    color: var(--texto_principal);
+}
 
 
 .option {
@@ -241,8 +248,6 @@ select {
     width: 300px;
 }
 
-
-
 /* FORMULARIO AÑADIR */
 .cnt__form {
     position: absolute;
@@ -259,7 +264,7 @@ select {
     z-index: 10000;
     background-color: var(--fondo_claro);
 }
-
+/* 
 .form__lists {
     position: relative;
     top: 40px;
@@ -295,7 +300,7 @@ select {
 
 .form__lists input[type=button]:active {
     transform: scale(0.97);
-}
+} */
 
 .form__item input[type=button] {
     margin-top: 20px;

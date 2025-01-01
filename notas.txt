@@ -20,5 +20,5 @@ Para aplicar las ofertas
 cambiar diseño:
 Hacer que la cabecera no sea fixed 👍
 quitar Nombre de tabla y formulaario
-Poner precio delante en tabla
-Añadir una columna Cuesta en tabla
+Poner precio delante en tabla 👍
+Añadir una columna Cuesta en tabla 👍
