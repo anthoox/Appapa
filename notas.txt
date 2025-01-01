@@ -2,6 +2,7 @@ fecha y hora 👍
 sumar precios 👍
 corregir tiempo 👍
 corregir js tras estilos 👍
+Sumar precios de las etiquetas span de la tabla 👍
 sumar cantidades
 aplicar ofertas
 suma total

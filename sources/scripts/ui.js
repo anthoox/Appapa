@@ -1,5 +1,5 @@
 import { validateTextInput, validateInput } from "./validations.js";
-import { clearInputs, dateTime, sumPrice, sumUnits } from "./script.js";
+import { clearInputs, dateTime, getTotalCost, sumUnits } from "./script.js";
 
 // FORMULARIO
 const btnAddList = document.getElementById("btn__addProduct");
@@ -114,7 +114,7 @@ btnAddProduct.addEventListener("click", () => {
 
     // PRECIO TOTAL
     const itemsTotalPrice = document.querySelector(".header__items");
-    itemsTotalPrice.innerHTML = sumPrice();
+    itemsTotalPrice.innerHTML = getTotalCost();
     sumUnits();
 
     // Ocultar formulario de listas
@@ -198,7 +198,7 @@ document.addEventListener("keydown", function (event) {
 
         // PRECIO TOTAL
         const itemsTotalPrice = document.querySelector(".header__items");
-        itemsTotalPrice.innerHTML = sumPrice();
+        itemsTotalPrice.innerHTML = getTotalCost();
 
         clearInputs();
 

@@ -25,13 +25,13 @@ export function dateTime(){
     return fullDateTime;
 }
 
-// SUMAR PRECIOS
-export function sumPrice() {
-    const prices = document.querySelectorAll('.input__number');
+// SUMAR COSTES
+export function getTotalCost() {
+    const prices = document.querySelectorAll('.table__cost');
     let total = 0;
 
     prices.forEach(price => {
-        const value = parseFloat(price.value);
+        const value = parseFloat(price.textContent);
         if (!isNaN(value)) {
             total += value; // Suma los valores numéricos
         }
