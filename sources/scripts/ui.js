@@ -218,7 +218,10 @@ document.addEventListener("keydown", function (event) {
         if (!formAddList.classList.contains("hidden")) {
             formAddList.classList.add("hidden");
         }
-        const arrayCosts = priceMultiplier(); // Suponiendo que esta función devuelve un array de costos
+
+
+        // MULTIPLICACIÓN DE PRECIOS POR UNIDADES DE CADA FILA
+        const arrayCosts = priceMultiplier(); 
 
 
 

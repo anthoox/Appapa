@@ -57,12 +57,15 @@ export function priceMultiplier() {
         );
         unitsInput.push(Number(row.querySelector(".input__units")?.value || 0));
         offerSelect.push(Number(row.querySelector("#tableOffers")?.value || 0));
-        // costSpan.push(row.querySelector(".table__cost").value); 
+        costSpan.push(row.querySelector(".table__cost").value); 
+
     });
 
 
   const result = []
     for (let i = 0; i < priceInput.length; i++){
+        // AÑADIR UNA VALIDACIÓN PARA CUANDO EL VALOR DEL SELECTOR SEA DISTINTO A 0
+        // if(costSpan[i]!== 0) -> añadir un switch para cada valor desde el 0 al 5 y añadir promoción y un default si no se especifica promo alguna
         result.push(Number(priceInput[i] * unitsInput[i]));
     }
 

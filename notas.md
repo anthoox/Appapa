@@ -5,7 +5,7 @@
 - corregir js tras estilos 👍
 - Sumar precios de las etiquetas span de la tabla 👍
 - unidades * precios y totales 👍
-- a- plicar ofertas y totales
+- aplicar ofertas y totales
 - suma total
 - Suma desde tabla
 - Multiplicación desde tabla
