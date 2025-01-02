@@ -1,5 +1,5 @@
 import { validateTextInput, validateInput } from "./validations.js";
-import { clearInputs, dateTime, getTotalCost, sumUnits } from "./script.js";
+import { clearInputs, dateTime, getTotalCost, priceMultiplier } from "./script.js";
 
 // FORMULARIO
 const btnAddList = document.getElementById("btn__addProduct");
@@ -48,7 +48,7 @@ btnAddProduct.addEventListener("click", () => {
     if (!value1) {
         isValid = false; // Si algún campo no es válido, detenemos el proceso
     } else {
-        formData[inputs[0].id] = value1.trim(); // Guardamos el valor validado
+        formData[inputs[1].id] = value1.trim(); // Guardamos el valor validado
     }
     if (!isValid) return; // Si hay errores, no se procesa más
 
@@ -70,10 +70,8 @@ btnAddProduct.addEventListener("click", () => {
     formDataArray.forEach((product) => {
         const tableBody = document.querySelector("tbody");
         const itemTable = document.createElement("tr");
-
+        itemTable.classList.add("table__row");
         const selectValue = product.selectOffers;
-        // const keyItem = index;
-        // console.log(keyItem);
         itemTable.innerHTML = `
          <!-- Precio -->
         <td>
@@ -106,21 +104,33 @@ btnAddProduct.addEventListener("click", () => {
         // Asignación del valor seleccionado por el usuario
         selectElement.value = selectValue;
     });
+    
+    
 
     clearInputs();
 
     // Vaciar array para volver a generarlo vacio
     formDataArray.length = 0;
 
-    // PRECIO TOTAL
-    const itemsTotalPrice = document.querySelector(".header__items");
-    itemsTotalPrice.innerHTML = getTotalCost();
-    sumUnits();
+    
 
     // Ocultar formulario de listas
     if (!formAddList.classList.contains("hidden")) {
         formAddList.classList.add("hidden");
     }
+    const arrayCosts = priceMultiplier(); // Suponiendo que esta función devuelve un array de costos
+    
+    
+    
+    
+    
+    const cntCost = document.querySelectorAll('.table__cost');
+    cntCost.forEach((cost, index) => {
+        cost.innerHTML = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+    });
+    // PRECIO TOTAL
+    const itemsTotalPrice = document.querySelector(".header__items");
+    itemsTotalPrice.innerHTML = getTotalCost();
 });
 
 // Añadir items con la tecla Enter
@@ -160,6 +170,7 @@ document.addEventListener("keydown", function (event) {
         formDataArray.forEach((product) => {
             const tableBody = document.querySelector("tbody");
             const itemTable = document.createElement("tr");
+            itemTable.classList.add("table__row");
 
             const selectValue = product.selectOffers;
 
@@ -195,20 +206,31 @@ document.addEventListener("keydown", function (event) {
             // Asignación del valor seleccionado por el usuario
             selectElement.value = selectValue;
         });
-
-        // PRECIO TOTAL
-        const itemsTotalPrice = document.querySelector(".header__items");
-        itemsTotalPrice.innerHTML = getTotalCost();
-
+        
         clearInputs();
 
         // Vaciar array para volver a generarlo vacio
         formDataArray.length = 0;
 
+
+
         // Ocultar formulario de listas
         if (!formAddList.classList.contains("hidden")) {
             formAddList.classList.add("hidden");
         }
+        const arrayCosts = priceMultiplier(); // Suponiendo que esta función devuelve un array de costos
+
+
+
+
+
+        const cntCost = document.querySelectorAll('.table__cost');
+        cntCost.forEach((cost, index) => {
+            cost.innerHTML = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+        });
+        // PRECIO TOTAL
+        const itemsTotalPrice = document.querySelector(".header__items");
+        itemsTotalPrice.innerHTML = getTotalCost();
     }
 });
 

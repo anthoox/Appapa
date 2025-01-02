@@ -3,8 +3,8 @@ sumar precios 👍
 corregir tiempo 👍
 corregir js tras estilos 👍
 Sumar precios de las etiquetas span de la tabla 👍
-sumar cantidades
-aplicar ofertas
+unidades * precios y totales 👍
+aplicar ofertas y totales
 suma total
 pruebas y errores
 correcciones y cambios
@@ -27,3 +27,4 @@ quitar Nombre de tabla y formulaario 👍
 Poner precio delante en tabla 👍
 Añadir una columna Cuesta en tabla 👍
 añadir outline a los dos inputs de la tabla 👍
+que al escribir en el input de unidades se sobrescriba el input sin necesidad de borrar el valor - Esto al final, tras subirlo.
