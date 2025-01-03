@@ -57,7 +57,6 @@ export function priceMultiplier() {
         );
         unitsInput.push(Number(row.querySelector(".input__units")?.value || 0));
         offerSelect.push(Number(row.querySelector("#tableOffers")?.value || 0));
-        costSpan.push(row.querySelector(".table__cost").value); 
 
     });
 
@@ -65,9 +64,36 @@ export function priceMultiplier() {
   const result = []
     for (let i = 0; i < priceInput.length; i++){
         // AÑADIR UNA VALIDACIÓN PARA CUANDO EL VALOR DEL SELECTOR SEA DISTINTO A 0
-        // if(costSpan[i]!== 0) -> añadir un switch para cada valor desde el 0 al 5 y añadir promoción y un default si no se especifica promo alguna
-        result.push(Number(priceInput[i] * unitsInput[i]));
+        switch(offerSelect[i]){
+            case 0: 
+                result.push(priceInput[i] * unitsInput[i]);
+                console.log('oferta 0')
+                break;
+            case 1:
+                // Calcular cuántos grupos de 3 hay y cuántos quedan fuera
+                const groupsOfThree = Math.floor(priceInput[i] / 3);
+                const remainingUnits = priceInput[i] % 3;
+
+                // Calcular el costo total con la oferta aplicada
+                const discountedCost =
+                    //grupos de 3 por 2 más lo que no este en la oferta por el precio
+                    groupsOfThree * 2 * priceInput[i] + remainingUnits * priceInput[i];
+
+                result.push(discountedCost);
+                break;
+            case 2:
+                console.log('ee')
+                const grupsOfTwo = Math.floor(priceInput[i]/2);
+                const remainingOfTwo = priceInput[i] % 2;
+
+                const discountedOfTwo = 
+                grupsOfTwo  * priceInput[i] + remainingOfTwo * priceInput[i];
+                console.log(grupsOfTwo, priceInput[i], remainingOfTwo)
+                result.push(discountedOfTwo);
+                break;
+        }
     }
 
     return result;
 }
+
