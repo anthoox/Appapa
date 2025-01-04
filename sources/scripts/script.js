@@ -51,6 +51,8 @@ export function priceMultiplier() {
     const priceInput = [];
     const unitsInput = [];
     const offerSelect = [];
+    const result = [];
+
     rows.forEach((row) => {
         priceInput.push(
             Number(row.querySelector(".input__number")?.value || 0)
@@ -61,7 +63,6 @@ export function priceMultiplier() {
     });
 
 
-  const result = []
     for (let i = 0; i < priceInput.length; i++){
         // AÑADIR UNA VALIDACIÓN PARA CUANDO EL VALOR DEL SELECTOR SEA DISTINTO A 0
         switch(offerSelect[i]){
@@ -71,8 +72,8 @@ export function priceMultiplier() {
                 break;
             case 1:
                 // Calcular cuántos grupos de 3 hay y cuántos quedan fuera
-                const groupsOfThree = Math.floor(priceInput[i] / 3);
-                const remainingUnits = priceInput[i] % 3;
+                const groupsOfThree = Math.floor(unitsInput[i] / 3);
+                const remainingUnits = unitsInput[i] % 3;
 
                 // Calcular el costo total con la oferta aplicada
                 const discountedCost =
@@ -83,13 +84,15 @@ export function priceMultiplier() {
                 break;
             case 2:
                 console.log('ee')
-                const grupsOfTwo = Math.floor(priceInput[i]/2);
-                const remainingOfTwo = priceInput[i] % 2;
+                const grupsOfTwo = Math.floor(unitsInput[i]/2);
+                const remainingOfTwo = unitsInput[i] % 2;
 
                 const discountedOfTwo = 
                 grupsOfTwo  * priceInput[i] + remainingOfTwo * priceInput[i];
+
                 console.log(grupsOfTwo, priceInput[i], remainingOfTwo)
                 result.push(discountedOfTwo);
+                console.log(discountedOfTwo);
                 break;
         }
     }
