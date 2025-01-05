@@ -64,17 +64,17 @@ export function priceMultiplier() {
 
 
     for (let i = 0; i < priceInput.length; i++){
+        const grupsOfTwo = Math.floor(unitsInput[i] / 2);
+        const remainingOfTwo = Number(unitsInput[i] % 2);
+        const groupsOfThree = Math.floor(unitsInput[i] / 3);
+        const remainingUnits = unitsInput[i] % 3;
         // AÑADIR UNA VALIDACIÓN PARA CUANDO EL VALOR DEL SELECTOR SEA DISTINTO A 0
         switch(offerSelect[i]){
             case 0: 
                 result.push(priceInput[i] * unitsInput[i]);
-                console.log('oferta 0')
+                console.log('Tres por Dos')
                 break;
             case 1:
-                // Calcular cuántos grupos de 3 hay y cuántos quedan fuera
-                const groupsOfThree = Math.floor(unitsInput[i] / 3);
-                const remainingUnits = unitsInput[i] % 3;
-
                 // Calcular el costo total con la oferta aplicada
                 const discountedCost =
                     //grupos de 3 por 2 más lo que no este en la oferta por el precio
@@ -83,17 +83,20 @@ export function priceMultiplier() {
                 result.push(discountedCost);
                 break;
             case 2:
-                console.log('ee')
-                const grupsOfTwo = Math.floor(unitsInput[i]/2);
-                const remainingOfTwo = unitsInput[i] % 2;
-
+                console.log('Dos por Uno')
                 const discountedOfTwo = 
                 grupsOfTwo  * priceInput[i] + remainingOfTwo * priceInput[i];
 
-                console.log(grupsOfTwo, priceInput[i], remainingOfTwo)
                 result.push(discountedOfTwo);
-                console.log(discountedOfTwo);
                 break;
+            case 3:
+                console.log('Segunda Unidad 70%');
+                const secondUnitDiscount =
+                    (grupsOfTwo * (priceInput[i] + priceInput[i] * 0.7)) + 
+                    (remainingOfTwo * priceInput[i]);;
+                result.push(secondUnitDiscount);
+                break;
+
         }
     }
 

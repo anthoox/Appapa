@@ -196,7 +196,7 @@ document.addEventListener("keydown", function (event) {
         </td>
         <!-- Coste a pagar -->
         <td>
-            <span class="table__cost">10</span>
+            <span class="table__cost"></span>
         </td>`;
 
             tableBody.appendChild(itemTable);
@@ -229,7 +229,7 @@ document.addEventListener("keydown", function (event) {
 
         const cntCost = document.querySelectorAll('.table__cost');
         cntCost.forEach((cost, index) => {
-            cost.innerHTML = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+            cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
         });
         // PRECIO TOTAL
         const itemsTotalPrice = document.querySelector(".header__items");
