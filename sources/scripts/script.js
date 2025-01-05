@@ -64,39 +64,54 @@ export function priceMultiplier() {
 
 
     for (let i = 0; i < priceInput.length; i++){
-        const grupsOfTwo = Math.floor(unitsInput[i] / 2);
+        const groupsOfTwo = Math.floor(unitsInput[i] / 2);
         const remainingOfTwo = Number(unitsInput[i] % 2);
         const groupsOfThree = Math.floor(unitsInput[i] / 3);
-        const remainingUnits = unitsInput[i] % 3;
+        const remainingOfThree = unitsInput[i] % 3;
         // AÑADIR UNA VALIDACIÓN PARA CUANDO EL VALOR DEL SELECTOR SEA DISTINTO A 0
         switch(offerSelect[i]){
             case 0: 
+                console.log('Sin Descuento')
                 result.push(priceInput[i] * unitsInput[i]);
-                console.log('Tres por Dos')
                 break;
             case 1:
+                console.log('Tres por Dos')
                 // Calcular el costo total con la oferta aplicada
                 const discountedCost =
                     //grupos de 3 por 2 más lo que no este en la oferta por el precio
-                    groupsOfThree * 2 * priceInput[i] + remainingUnits * priceInput[i];
+                    groupsOfThree * 2 * priceInput[i] + remainingOfThree * priceInput[i];
 
                 result.push(discountedCost);
                 break;
             case 2:
                 console.log('Dos por Uno')
                 const discountedOfTwo = 
-                grupsOfTwo  * priceInput[i] + remainingOfTwo * priceInput[i];
+                groupsOfTwo  * priceInput[i] + remainingOfTwo * priceInput[i];
 
                 result.push(discountedOfTwo);
                 break;
             case 3:
-                console.log('Segunda Unidad 70%');
-                const secondUnitDiscount =
-                    (grupsOfTwo * (priceInput[i] + priceInput[i] * 0.7)) + 
-                    (remainingOfTwo * priceInput[i]);;
-                result.push(secondUnitDiscount);
+                console.log('Segunda Unidad al 70%');
+                const secondUnitDiscountSeventy =
+                    (groupsOfTwo * (priceInput[i] + priceInput[i] * 0.7)) + 
+                    (remainingOfTwo * priceInput[i]);
+                result.push(secondUnitDiscountSeventy);
                 break;
-
+            case 4:
+                console.log('Segunda Unidad al 50%');
+                const secondUnitDiscountFifty =
+                    (groupsOfTwo * (priceInput[i] + priceInput[i] * 0.5)) +
+                    (remainingOfTwo * priceInput[i]);
+                result.push(secondUnitDiscountFifty);
+                break;
+            case 5:
+                console.log('Tercera Unidad al 50%');
+                const thirdUnitDiscountFifty =
+                    (groupsOfThree * ((2 * priceInput[i]) + (priceInput[i] * 0.5))) + (remainingOfThree * priceInput[i]);
+                result.push(thirdUnitDiscountFifty);
+                break;
+            default:
+                console.error ('Oferta No Encontrada');
         }
     }
 
