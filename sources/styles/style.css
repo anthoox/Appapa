@@ -120,7 +120,8 @@ main {
     flex-wrap: wrap;
     gap: 5px;
 }
-.offers{
+
+.offers {
     width: 100%;
     display: flex;
     gap: 5px;
@@ -135,6 +136,7 @@ main {
     border-radius: .3rem;
     color: var(--fondo_claro);
 }
+
 .offers__title {
     color: var(--texto_principal);
     background-color: var(--fondo_claro);
@@ -155,7 +157,7 @@ tbody,
 thead,
 tr {
     display: block;
-    
+
 }
 
 tr {
@@ -208,7 +210,8 @@ select {
     border: none;
     color: var(--texto_principal);
 }
-.table__cost{
+
+.table__cost {
     font-size: 1.25rem;
     color: var(--texto_principal);
 }
@@ -219,27 +222,37 @@ select {
     font-size: 1rem;
     color: var(--fondo_claro);
     cursor: pointer;
-    background-color: var(--texto_principal)    ;
+    background-color: var(--texto_principal);
 }
 
 .tresPorDos {
     background-color: var(--tresPorDos);
+    color: var(--fondo_claro);
+    border-radius: .3rem;
 }
 
 .dosPorUno {
     background-color: var(--dosPorUno);
+    color: var(--fondo_claro);
+    border-radius: .3rem;
 }
 
 .segSetenta {
     background-color: var(--segSetenta);
+    color: var(--fondo_claro);
+    border-radius: .3rem;
 }
 
 .segCincuenta {
-    background-color: var(--segCincuenta)
+    background-color: var(--segCincuenta);
+    color: var(--fondo_claro);
+    border-radius: .3rem;
 }
 
 .terCincuenta {
     background-color: var(--terCincuenta);
+    color: var(--fondo_claro);
+    border-radius: .3rem;
 }
 
 .container__list .cnt__btns {
@@ -264,43 +277,6 @@ select {
     z-index: 10000;
     background-color: var(--fondo_claro);
 }
-/* 
-.form__lists {
-    position: relative;
-    top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.form__lists input[type=text] {
-    border: none;
-    background-color: var(--fondo_claro);
-    border-bottom: 1px solid var(--texto_secundario);
-    margin-top: 10px;
-    text-align: center;
-    font-size: 1rem;
-    outline: none;
-}
-
-.form__lists input[type=button] {
-    width: 60%;
-    max-width: 250px;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: .3rem;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
-    transition: transform 250ms ease;
-    background-color: var(--primario);
-    color: var(--fondo_claro);
-}
-
-.form__lists input[type=button]:active {
-    transform: scale(0.97);
-} */
 
 .form__item input[type=button] {
     margin-top: 20px;
@@ -347,6 +323,7 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
     /* Opcional: asegura que no quede espacio */
 }
+
 /* Fin flechas incrementales*/
 
 .form__item input[type=button] {
@@ -425,7 +402,7 @@ input[type="number"]::-webkit-outer-spin-button {
     transform: scale(0.97);
 }
 
-.btn__close{
+.btn__close {
     font-size: 2rem;
     margin: 20px;
 }

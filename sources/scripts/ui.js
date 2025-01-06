@@ -103,7 +103,31 @@ btnAddProduct.addEventListener("click", () => {
         const selectElement = itemTable.querySelector("select");
         // Asignación del valor seleccionado por el usuario
         selectElement.value = selectValue;
+
+        switch (Number(selectValue)) {
+            case 1:
+                selectElement.classList.add('tresPorDos')
+                break;
+            case 2:
+                selectElement.classList.add('dosPorUno')
+                console.log('dato: 2');
+                break;
+            case 3:
+                selectElement.classList.add('segSetenta')
+                console.log('dato: 3');
+                break;
+            case 4: 
+                selectElement.classList.add('segCincuenta')
+                console.log('dato: 4');
+                break;
+            case 5:
+                selectElement.classList.add('terCincuenta')
+                console.log('dato: 5');
+                break;
+        }
+
     });
+    
     
     
 
@@ -118,16 +142,16 @@ btnAddProduct.addEventListener("click", () => {
     if (!formAddList.classList.contains("hidden")) {
         formAddList.classList.add("hidden");
     }
-    const arrayCosts = priceMultiplier(); // Suponiendo que esta función devuelve un array de costos
+    const arrayCosts = priceMultiplier(); // array con el costo de cada item.
     
     
     
-    
-    
+    // Coste de cada producto
     const cntCost = document.querySelectorAll('.table__cost');
     cntCost.forEach((cost, index) => {
-        cost.innerHTML = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+        cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
     });
+
     // PRECIO TOTAL
     const itemsTotalPrice = document.querySelector(".header__items");
     itemsTotalPrice.innerHTML = getTotalCost();
@@ -241,11 +265,6 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-// RELOJ FECHA-HORA
-const subTitleTime = document.querySelector(".subtitle");
-setInterval(() => {
-    subTitleTime.innerHTML = dateTime();
-}, 1000);
 
 
 // LIMPIAR INPUT UNIDADES DE FORMULARIO
@@ -260,3 +279,10 @@ inputUnit.addEventListener('mouseleave', () =>{
     inputUnit.value = 1;
     }
 })
+
+
+// RELOJ FECHA-HORA
+const subTitleTime = document.querySelector(".subtitle");
+setInterval(() => {
+    subTitleTime.innerHTML = dateTime();
+}, 1000);
