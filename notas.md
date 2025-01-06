@@ -12,13 +12,18 @@
     - 2u50 👍
     - 3u50 👍
 - suma total 👍
-- Suma desde tabla
-- Multiplicación desde tabla
-- aplicación de oferta desde tabla
-- subir
-- limpiar código
+- Tabla
+    - sumar cantidades
+    - aplicar descuentos
+    - Obtener costes
+- Subir
+- pruebas
+- Mejorar estilos y diseño
 - Optimizar código
-- re-subir
+    - crear funciones
+    - eliminar estilos restantes
+    - limpiar código
+- Re-subir
 
 
 -----------------
@@ -30,5 +35,3 @@
 - Añadir outline a los dos inputs de la tabla 👍
 - Que al dar en el input unidades del formulario se vacie. Si no se rellena tendrá valor 1. 👍
 - Establecer color de fondo de oferta en select de tabla 👍
-- Sobrescribir input sin necesidad de borrar el valor desde tabla
-- corregir valor a mostrar en "coste" en la tabla cuando no se aplica oferta 
