@@ -144,14 +144,21 @@ document.addEventListener("keydown", function (event) {
 
         // Configuración para validar que el campo Precio tenga valor
         let isValid = true;
-        const value = validateInput(inputs[0]);
-        if (!value) {
+        const value0 = validateInput(inputs[0]);
+        if (!value0) {
             isValid = false; // Si algún campo no es válido, detenemos el proceso
         } else {
-            formData[inputs[0].id] = value.trim(); // Guardamos el valor validado
+            formData[inputs[0].id] = value0.trim(); // Guardamos el valor validado
         }
-
         if (!isValid) return; // Si hay errores, no se procesa más
+        const value1 = validateInput(inputs[1]);
+        if (!value1) {
+            isValid = false; // Si algún campo no es válido, detenemos el proceso
+        } else {
+            formData[inputs[1].id] = value1.trim(); // Guardamos el valor validado
+        }
+        if (!isValid) return; // Si hay errores, no se procesa más
+
 
         // Configuración para obtener el valor de cada input
         inputs.forEach((input) => {
@@ -171,9 +178,7 @@ document.addEventListener("keydown", function (event) {
             const tableBody = document.querySelector("tbody");
             const itemTable = document.createElement("tr");
             itemTable.classList.add("table__row");
-
             const selectValue = product.selectOffers;
-
             itemTable.innerHTML = `
          <!-- Precio -->
         <td>
@@ -196,7 +201,7 @@ document.addEventListener("keydown", function (event) {
         </td>
         <!-- Coste a pagar -->
         <td>
-            <span class="table__cost"></span>
+            <span class="table__cost">10</span>
         </td>`;
 
             tableBody.appendChild(itemTable);
@@ -206,7 +211,9 @@ document.addEventListener("keydown", function (event) {
             // Asignación del valor seleccionado por el usuario
             selectElement.value = selectValue;
         });
-        
+
+
+
         clearInputs();
 
         // Vaciar array para volver a generarlo vacio
@@ -218,10 +225,7 @@ document.addEventListener("keydown", function (event) {
         if (!formAddList.classList.contains("hidden")) {
             formAddList.classList.add("hidden");
         }
-
-
-        // MULTIPLICACIÓN DE PRECIOS POR UNIDADES DE CADA FILA
-        const arrayCosts = priceMultiplier(); 
+        const arrayCosts = priceMultiplier(); // Suponiendo que esta función devuelve un array de costos
 
 
 
@@ -229,7 +233,7 @@ document.addEventListener("keydown", function (event) {
 
         const cntCost = document.querySelectorAll('.table__cost');
         cntCost.forEach((cost, index) => {
-            cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+            cost.innerHTML = arrayCosts[index]; // Asignar el valor al elemento correspondiente
         });
         // PRECIO TOTAL
         const itemsTotalPrice = document.querySelector(".header__items");
@@ -242,3 +246,17 @@ const subTitleTime = document.querySelector(".subtitle");
 setInterval(() => {
     subTitleTime.innerHTML = dateTime();
 }, 1000);
+
+
+// LIMPIAR INPUT UNIDADES DE FORMULARIO
+// Vuelve el valor al 0 al seleccionar el input
+const inputUnit = document.getElementById('units');
+inputUnit.addEventListener('click', ()=>{
+    inputUnit.value = '';
+})
+// Deja el valor del input a 1 cuando se abandona el input y no se añade valor
+inputUnit.addEventListener('mouseleave', () =>{
+    if(inputUnit.value === ''){
+    inputUnit.value = 1;
+    }
+})

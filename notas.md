@@ -28,6 +28,7 @@
 - Poner precio delante en tabla 👍
 - Añadir una columna Cuesta en tabla 👍
 - Añadir outline a los dos inputs de la tabla 👍
-- Sobrescribir input sin necesidad de borrar el valor
+- Que al dar en el input unidades del formulario se vacie. Si no se rellena tendrá valor 1. 👍
 - Establecer color de fondo de oferta en select de tabla
-- corregir valor a mostrar en "coste" en la tabla cuando no se aplica oferta
+- Sobrescribir input sin necesidad de borrar el valor desde tabla
+- corregir valor a mostrar en "coste" en la tabla cuando no se aplica oferta 
