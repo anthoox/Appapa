@@ -1,5 +1,5 @@
 import { validateTextInput, validateInput } from "./validations.js";
-import { clearInputs, dateTime, getTotalCost, priceMultiplier } from "./script.js";
+import { clearInputs, dateTime, getTotalCost, priceMultiplier, updateTable } from "./script.js";
 
 // FORMULARIO
 const btnAddList = document.getElementById("btn__addProduct");
@@ -125,6 +125,7 @@ btnAddProduct.addEventListener("click", () => {
                 console.log('dato: 5');
                 break;
         }
+        
 
     });
     
@@ -155,6 +156,9 @@ btnAddProduct.addEventListener("click", () => {
     // PRECIO TOTAL
     const itemsTotalPrice = document.querySelector(".header__items");
     itemsTotalPrice.innerHTML = getTotalCost();
+    setTimeout(()=>{
+        updateTable();
+    }, 2000)
 });
 
 // Añadir items con la tecla Enter
@@ -286,3 +290,5 @@ const subTitleTime = document.querySelector(".subtitle");
 setInterval(() => {
     subTitleTime.innerHTML = dateTime();
 }, 1000);
+
+

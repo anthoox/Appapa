@@ -26,21 +26,27 @@ export function dateTime() {
 }
 
 // SUMAR COSTES
-export function getTotalCost() {
-    const prices = document.querySelectorAll(".table__cost");
-    let total = 0;
+export function getTotalCost(elem) {
+    if(!elem){
+        const prices = document.querySelectorAll(".table__cost");
+        let total = 0;
 
-    prices.forEach((price) => {
-        const value = parseFloat(price.textContent);
-        if (!isNaN(value)) {
-            total += value; // Suma los valores numéricos
-        }
-    });
+        prices.forEach((price) => {
+            const value = parseFloat(price.textContent);
+            if (!isNaN(value)) {
+                total += value; // Suma los valores numéricos
+            }
+        });
 
-    // Formatear el total con 2 decimales
-    total = total.toFixed(2); // Convierte el número a una cadena con dos decimales
-    const formattedTotal = `<h2>Total: ${total}</h2>`;
-    return formattedTotal;
+        // Formatear el total con 2 decimales
+        total = total.toFixed(2); // Convierte el número a una cadena con dos decimales
+        const formattedTotal = `<h2>Total: ${total}</h2>`;
+        return formattedTotal;
+        
+    }else{
+        console.log('probando')
+    }
+    
 }
 
 // MULTIPLICAR CANTIDADES POR PRECIO
@@ -118,3 +124,21 @@ export function priceMultiplier() {
     return result;
 }
 
+// TABLA
+export function updateTable(){
+    const rowsTable = document.querySelectorAll('.table__tr');
+    if(rowsTable){
+        console.log('holahola')
+    }else{
+        console.error('mierda')
+    }
+    // const inputsTable = rowsTable.querySelectorAll('input, select');
+    console.log(rowsTable)
+    rowsTable.forEach(input => {
+        input.addEventListener('mouseleave', (e) => {
+            console.log('ew')
+
+
+        })
+    })
+}
