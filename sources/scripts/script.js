@@ -27,7 +27,7 @@ export function dateTime() {
 
 // SUMAR COSTES
 export function getTotalCost(elem) {
-    if(!elem){
+    // if(!elem){
         const prices = document.querySelectorAll(".table__cost");
         let total = 0;
 
@@ -43,9 +43,9 @@ export function getTotalCost(elem) {
         const formattedTotal = `<h2>Total: ${total}</h2>`;
         return formattedTotal;
         
-    }else{
-        console.log('probando')
-    }
+    // }else{
+        // console.log('probando')
+    // }
     
 }
 
@@ -126,19 +126,73 @@ export function priceMultiplier() {
 
 // TABLA
 export function updateTable(){
-    const rowsTable = document.querySelectorAll('.table__tr');
-    if(rowsTable){
-        console.log('holahola')
-    }else{
-        console.error('mierda')
-    }
-    // const inputsTable = rowsTable.querySelectorAll('input, select');
-    console.log(rowsTable)
-    rowsTable.forEach(input => {
-        input.addEventListener('mouseleave', (e) => {
-            console.log('ew')
+    const rowsTable = document.querySelectorAll('td');
+    rowsTable.forEach(colum => {
+        const inputsTable = colum.querySelectorAll('input, select');
+        inputsTable.forEach(input => {
+            if(input.tagName  === 'INPUT'){
+                input.addEventListener('keyup', () => {
+                    console.log(input.value)
+                    const arrayCosts = priceMultiplier(); // array con el costo de cada item.
+                    // Coste de cada producto
+                    const cntCost = document.querySelectorAll('.table__cost');
+                    cntCost.forEach((cost, index) => {
+                        cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+                    });
 
+                    // PRECIO TOTAL
+                    const itemsTotalPrice = document.querySelector(".header__items");
+                    itemsTotalPrice.innerHTML = getTotalCost();
 
+                })
+            }else if( input.tagName === 'SELECT'){
+                input.addEventListener('change', () => {
+                    console.log(input.value)
+                    const arrayCosts = priceMultiplier(); // array con el costo de cada item.
+                    // Coste de cada producto
+                    const cntCost = document.querySelectorAll('.table__cost');
+                    cntCost.forEach((cost, index) => {
+                        cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+                    });
+
+                    // PRECIO TOTAL
+                    const itemsTotalPrice = document.querySelector(".header__items");
+
+                    // Asignación del valor seleccionado por el usuario
+
+                    switch (Number(input.value)) {
+                        case 1:
+                            input.classList.add('tresPorDos')
+                            break;
+                        case 2:
+                            input.classList.add('dosPorUno')
+                            console.log('dato: 2');
+                            break;
+                        case 3:
+                            input.classList.add('segSetenta')
+                            console.log('dato: 3');
+                            break;
+                        case 4:
+                            input.classList.add('segCincuenta')
+                            console.log('dato: 4');
+                            break;
+                        case 5:
+                            input.classList.add('terCincuenta')
+                            console.log('dato: 5');
+                            break;
+                    }
+
+                    
+                    itemsTotalPrice.innerHTML = getTotalCost();
+                    
+                })
+            }else {
+                // Este mensaje es de prueba
+                console.log('otroo')
+            }
+            
         })
+        // Ya tengo los valores, ahora queda actualizarlos.
+ 
     })
 }

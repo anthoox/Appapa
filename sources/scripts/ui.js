@@ -156,9 +156,9 @@ btnAddProduct.addEventListener("click", () => {
     // PRECIO TOTAL
     const itemsTotalPrice = document.querySelector(".header__items");
     itemsTotalPrice.innerHTML = getTotalCost();
-    setTimeout(()=>{
+    // setTimeout(()=>{
         updateTable();
-    }, 2000)
+    // }, 2000)
 });
 
 // Añadir items con la tecla Enter

@@ -12,10 +12,11 @@
     - 2u50 👍
     - 3u50 👍
 - suma total 👍
-- Tabla
-    - sumar cantidades
-    - aplicar descuentos
-    - Obtener costes
+- Tabla 👍
+    - sumar cantidades 👍
+    - aplicar descuentos 👍
+    - Obtener costes 👍
+- Almacenamiento de datos
 - Subir
 - pruebas
 - Mejorar estilos y diseño
