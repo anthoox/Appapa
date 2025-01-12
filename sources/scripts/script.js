@@ -221,19 +221,19 @@ export function startSesion() {
     return sessionId; // Retornamos el identificador de la sesión
 }
 
-export function agregarElemento(item, cantidad) {
-    const sessionId = inicializarSesion(); // Obtenemos el identificador de sesión
+export function agregarElemento(item, cantidad, oferta) {
+    const sessionId = startSesion(); // Obtenemos el identificador de sesión
 
     // Recuperamos la lista de compras actual o inicializamos una nueva
     let listaCompra = JSON.parse(localStorage.getItem(sessionId)) || [];
 
     // Agregamos el nuevo elemento a la lista
-    listaCompra.push({ item, cantidad });
+    listaCompra.push({ item, cantidad, oferta });
 
     // Guardamos la lista actualizada en LocalStorage
     localStorage.setItem(sessionId, JSON.stringify(listaCompra));
 
-    console.log(`Elemento agregado: ${item}, Cantidad: ${cantidad}`);
+    console.log(`Precio: ${item}, Unidades: ${cantidad}, Oferta: ${oferta}` );
 }
 
 export function mostrarLista() {

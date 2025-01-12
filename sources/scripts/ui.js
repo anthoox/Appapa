@@ -1,5 +1,5 @@
 import { validateTextInput, validateInput } from "./validations.js";
-import { clearInputs, dateTime, getTotalCost, priceMultiplier, updateTable } from "./script.js";
+import { clearInputs, dateTime, getTotalCost, priceMultiplier, updateTable, agregarElemento } from "./script.js";
 
 // FORMULARIO
 const btnAddList = document.getElementById("btn__addProduct");
@@ -72,6 +72,8 @@ btnAddProduct.addEventListener("click", () => {
         const itemTable = document.createElement("tr");
         itemTable.classList.add("table__row");
         const selectValue = product.selectOffers;
+
+        agregarElemento(product.price, product.units, selectValue);
         itemTable.innerHTML = `
          <!-- Precio -->
         <td>
