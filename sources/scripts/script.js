@@ -197,7 +197,7 @@ export function updateTable(){
     })
 }
 
-// IDENTIFICADOR UNICO DE USUARIO --no exportado aun--
+// IDENTIFICADOR UNICO DE USUARIO 
 export function generatorUUID(){
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         const r = Math.random() * 16 | 0; // Genera un número aleatorio
@@ -206,7 +206,7 @@ export function generatorUUID(){
     });
 }
 
-// INICIAR SESIÓN --no exportado aun--
+// INICIAR SESIÓN 
 export function startSesion() {
     // Verificamos si ya existe un identificador único en el navegador
     let sessionId = localStorage.getItem('sessionId');
@@ -217,7 +217,7 @@ export function startSesion() {
         localStorage.setItem('sessionId', sessionId);
     }
 
-    console.log(`ID de sesión actual: ${sessionId}`);
+    // console.log(`ID de sesión actual: ${sessionId}`);
     return sessionId; // Retornamos el identificador de la sesión
 }
 
@@ -233,21 +233,98 @@ export function agregarElemento(item, cantidad, oferta) {
     // Guardamos la lista actualizada en LocalStorage
     localStorage.setItem(sessionId, JSON.stringify(listaCompra));
 
-    console.log(`Precio: ${item}, Unidades: ${cantidad}, Oferta: ${oferta}` );
+    // console.log(`Precio: ${item}, Unidades: ${cantidad}, Oferta: ${oferta}` );
+    
 }
 
 export function mostrarLista() {
-    const sessionId = inicializarSesion(); // Obtenemos el identificador de sesión
+    const sessionId = startSesion(); // Obtenemos el identificador de sesión
 
     // Recuperamos la lista asociada al navegador
     const listaCompra = JSON.parse(localStorage.getItem(sessionId)) || [];
 
-    console.log('Lista de compras:', listaCompra);
-    return listaCompra;
+    // console.log('Lista de compras:', listaCompra);
+    // return listaCompra;
+    const tableBody = document.querySelector("tbody");
+
+    listaCompra.forEach(elem =>{
+        const itemTable = document.createElement("tr");
+        itemTable.classList.add("table__row");
+        itemTable.innerHTML = '';
+        itemTable.innerHTML = `
+         <!-- Precio -->
+        <td>
+            <input class="input__number left table__input " type="number" value="${elem.item}">
+        </td>
+        <!-- Unidades -->
+        <td>
+            <input class="input__units table__input" type="number" value="${elem.cantidad}">
+        </td>
+        <!-- Oferta -->
+        <td>
+            <select name="" id="tableOffers">
+                <option class="table__option option " selected value="0">--</option>
+                <option class="table__option option tresPorDos" value="1">3x2</option>
+                <option class="table__option option dosPorUno" value="2">2x1</option>
+                <option class="table__option option segSetenta" value="3">2u70</option>
+                <option class="table__option option segCincuenta" value="4">2u50</option>
+                <option class="table__option option terCincuenta" value="5">3u50</option>
+            </select>
+        </td>
+        <!-- Coste a pagar -->
+        <td>
+            <span class="table__cost">10</span>
+        </td>`;
+
+        tableBody.appendChild(itemTable);
+
+        const arrayCosts = priceMultiplier(); // array con el costo de cada item.
+
+        // Selección de elemento select
+        const selectElement = itemTable.querySelector("select");
+        // Asignación del valor seleccionado por el usuario
+        selectElement.value = elem.oferta;
+
+        switch (Number(elem.oferta)) {
+            case 1:
+                selectElement.classList.add('tresPorDos')
+                break;
+            case 2:
+                selectElement.classList.add('dosPorUno')
+                console.log('dato: 2');
+                break;
+            case 3:
+                selectElement.classList.add('segSetenta')
+                console.log('dato: 3');
+                break;
+            case 4: 
+                selectElement.classList.add('segCincuenta')
+                console.log('dato: 4');
+                break;
+            case 5:
+                selectElement.classList.add('terCincuenta')
+                console.log('dato: 5');
+                break;
+        }
+
+
+    })
+    const arrayCosts = priceMultiplier(); // array con el costo de cada item.
+
+    // Coste de cada producto
+    const cntCost = document.querySelectorAll('.table__cost');
+    cntCost.forEach((cost, index) => {
+        cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+    });
+
+    // PRECIO TOTAL
+    const itemsTotalPrice = document.querySelector(".header__items");
+    itemsTotalPrice.innerHTML = getTotalCost();
+    updateTable();
 }
 
 export function eliminarElemento(index) {
-    const sessionId = inicializarSesion(); // Obtenemos el identificador de sesión
+    const sessionId = startSesion(); // Obtenemos el identificador de sesión
 
     // Recuperamos la lista actual
     let listaCompra = JSON.parse(localStorage.getItem(sessionId)) || [];
