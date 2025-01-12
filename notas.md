@@ -19,7 +19,7 @@
 - Almacenamiento de datos,
     - guardar sesion y datos 👍
     - guardar datos modificados desde tabla 👍
-- Eliminar fila desde tabla
+- Eliminar fila desde tabla 👍
 - Subir
 - pruebas
 - Mejorar estilos y diseño
