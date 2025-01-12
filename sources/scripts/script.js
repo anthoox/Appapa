@@ -162,21 +162,26 @@ export function updateTable(){
 
                     switch (Number(input.value)) {
                         case 1:
+                            input.className = '';
                             input.classList.add('tresPorDos')
                             break;
                         case 2:
+                            input.className = '';
                             input.classList.add('dosPorUno')
                             console.log('dato: 2');
                             break;
                         case 3:
+                            input.className = '';
                             input.classList.add('segSetenta')
                             console.log('dato: 3');
                             break;
                         case 4:
+                            input.className = '';
                             input.classList.add('segCincuenta')
                             console.log('dato: 4');
                             break;
                         case 5:
+                            input.className = '';
                             input.classList.add('terCincuenta')
                             console.log('dato: 5');
                             break;
