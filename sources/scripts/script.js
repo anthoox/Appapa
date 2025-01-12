@@ -125,16 +125,25 @@ export function priceMultiplier() {
 }
 
 // TABLA
-export function updateTable(){
-    const rowsTable = document.querySelectorAll('td');
-    rowsTable.forEach(colum => {
-        const inputsTable = colum.querySelectorAll('input, select');
+export function updateTable() {
+    const rowsTable = document.querySelectorAll('tr.table__row'); // Filas de la tabla
+    const sessionId = startSesion(); // Identificador de sesión
+    let listaCompra = JSON.parse(localStorage.getItem(sessionId)) || []; // Recuperar lista del localStorage
+
+    rowsTable.forEach((row, rowIndex) => {
+        const inputsTable = row.querySelectorAll('input, select');
         inputsTable.forEach(input => {
-            if(input.tagName  === 'INPUT'){
+            if (input.tagName === 'INPUT') {
                 input.addEventListener('keyup', () => {
-                    console.log(input.value)
+                    const inputClass = input.classList.contains('input__number') ? 'item' : 'cantidad';
+                    // Actualizar el valor en la listaCompra
+                    listaCompra[rowIndex][inputClass] = Number(input.value);
+
+                    // Guardar la lista actualizada en localStorage
+                    localStorage.setItem(sessionId, JSON.stringify(listaCompra));
+
+                    // Actualizar la tabla
                     const arrayCosts = priceMultiplier(); // array con el costo de cada item.
-                    // Coste de cada producto
                     const cntCost = document.querySelectorAll('.table__cost');
                     cntCost.forEach((cost, index) => {
                         cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
@@ -143,63 +152,56 @@ export function updateTable(){
                     // PRECIO TOTAL
                     const itemsTotalPrice = document.querySelector(".header__items");
                     itemsTotalPrice.innerHTML = getTotalCost();
-
-                })
-            }else if( input.tagName === 'SELECT'){
+                });
+            } else if (input.tagName === 'SELECT') {
                 input.addEventListener('change', () => {
-                    console.log(input.value)
-                    const arrayCosts = priceMultiplier(); // array con el costo de cada item.
-                    // Coste de cada producto
-                    const cntCost = document.querySelectorAll('.table__cost');
-                    cntCost.forEach((cost, index) => {
-                        cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
-                    });
+                    // Actualizar la oferta en la listaCompra
+                    listaCompra[rowIndex].oferta = Number(input.value);
 
-                    // PRECIO TOTAL
-                    const itemsTotalPrice = document.querySelector(".header__items");
+                    // Guardar la lista actualizada en localStorage
+                    localStorage.setItem(sessionId, JSON.stringify(listaCompra));
 
-                    // Asignación del valor seleccionado por el usuario
-
+                    // Actualizar la clase del select
                     switch (Number(input.value)) {
                         case 1:
                             input.className = '';
-                            input.classList.add('tresPorDos')
+                            input.classList.add('tresPorDos');
                             break;
                         case 2:
                             input.className = '';
-                            input.classList.add('dosPorUno')
-                            console.log('dato: 2');
+                            input.classList.add('dosPorUno');
                             break;
                         case 3:
                             input.className = '';
-                            input.classList.add('segSetenta')
-                            console.log('dato: 3');
+                            input.classList.add('segSetenta');
                             break;
                         case 4:
                             input.className = '';
-                            input.classList.add('segCincuenta')
-                            console.log('dato: 4');
+                            input.classList.add('segCincuenta');
                             break;
                         case 5:
                             input.className = '';
-                            input.classList.add('terCincuenta')
-                            console.log('dato: 5');
+                            input.classList.add('terCincuenta');
+                            break;
+                        default:
+                            input.className = '';
                             break;
                     }
 
-                    
+                    // Actualizar la tabla
+                    const arrayCosts = priceMultiplier(); // array con el costo de cada item.
+                    const cntCost = document.querySelectorAll('.table__cost');
+                    cntCost.forEach((cost, index) => {
+                        cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+                    });
+
+                    // PRECIO TOTAL
+                    const itemsTotalPrice = document.querySelector(".header__items");
                     itemsTotalPrice.innerHTML = getTotalCost();
-                    
-                })
-            }else {
-                // Este mensaje es de prueba
-                console.log('otroo')
+                });
             }
-            
-        })
-        // Ya tengo los valores, ahora queda actualizarlos.
- 
-    })
+        });
+    });
 }
 
 // IDENTIFICADOR UNICO DE USUARIO 
@@ -310,6 +312,9 @@ export function mostrarLista() {
                 selectElement.classList.add('terCincuenta')
                 console.log('dato: 5');
                 break;
+            default:
+                selectElement.className = '';
+                break;
         }
 
 
@@ -327,6 +332,7 @@ export function mostrarLista() {
     itemsTotalPrice.innerHTML = getTotalCost();
     updateTable();
 }
+
 
 export function eliminarElemento(index) {
     const sessionId = startSesion(); // Obtenemos el identificador de sesión

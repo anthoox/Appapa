@@ -17,6 +17,9 @@
     - aplicar descuentos 👍
     - Obtener costes 👍
 - Almacenamiento de datos,
+    - guardar sesion y datos 👍
+    - guardar datos modificados desde tabla 👍
+- Eliminar fila desde tabla
 - Subir
 - pruebas
 - Mejorar estilos y diseño
@@ -36,3 +39,4 @@
 - Añadir outline a los dos inputs de la tabla 👍
 - Que al dar en el input unidades del formulario se vacie. Si no se rellena tendrá valor 1. 👍
 - Establecer color de fondo de oferta en select de tabla 👍
+- Añadir boton en tabla para eliminar fila
