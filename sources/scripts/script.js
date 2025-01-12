@@ -250,18 +250,16 @@ export function mostrarLista() {
     // Recuperamos la lista asociada al navegador
     const listaCompra = JSON.parse(localStorage.getItem(sessionId)) || [];
 
-    // console.log('Lista de compras:', listaCompra);
-    // return listaCompra;
     const tableBody = document.querySelector("tbody");
+    tableBody.innerHTML = ''; // Limpiamos el contenido existente
 
-    listaCompra.forEach(elem =>{
+    listaCompra.forEach((elem, index) => {
         const itemTable = document.createElement("tr");
         itemTable.classList.add("table__row");
-        itemTable.innerHTML = '';
         itemTable.innerHTML = `
          <!-- Precio -->
         <td>
-            <input class="input__number left table__input " type="number" value="${elem.item}">
+            <input class="input__number left table__input" type="number" value="${elem.item}">
         </td>
         <!-- Unidades -->
         <td>
@@ -269,8 +267,8 @@ export function mostrarLista() {
         </td>
         <!-- Oferta -->
         <td>
-            <select name="" id="tableOffers">
-                <option class="table__option option " selected value="0">--</option>
+            <select name="" class="tableOffers">
+                <option class="table__option option" selected value="0">--</option>
                 <option class="table__option option tresPorDos" value="1">3x2</option>
                 <option class="table__option option dosPorUno" value="2">2x1</option>
                 <option class="table__option option segSetenta" value="3">2u70</option>
@@ -282,57 +280,47 @@ export function mostrarLista() {
         <td>
             <span class="table__cost">10</span>
         </td>
-         <td>
+        <!-- Botón eliminar -->
+        <td>
             <div class="table__icon">
-                    <i class="del las la-times"></i>
+                <i class="del las la-times"></i>
             </div>
         </td>`;
 
         tableBody.appendChild(itemTable);
 
-        const arrayCosts = priceMultiplier(); // array con el costo de cada item.
-
-        // Selección de elemento select
+        // Selección del valor de oferta
         const selectElement = itemTable.querySelector("select");
-        // Asignación del valor seleccionado por el usuario
         selectElement.value = elem.oferta;
-
+        selectElement.className = ''; // Limpia las clases previas
         switch (Number(elem.oferta)) {
             case 1:
-                selectElement.classList.add('tresPorDos')
+                selectElement.classList.add('tresPorDos');
                 break;
             case 2:
-                selectElement.classList.add('dosPorUno')
-                console.log('dato: 2');
+                selectElement.classList.add('dosPorUno');
                 break;
             case 3:
-                selectElement.classList.add('segSetenta')
-                console.log('dato: 3');
+                selectElement.classList.add('segSetenta');
                 break;
-            case 4: 
-                selectElement.classList.add('segCincuenta')
-                console.log('dato: 4');
+            case 4:
+                selectElement.classList.add('segCincuenta');
                 break;
             case 5:
-                selectElement.classList.add('terCincuenta')
-                console.log('dato: 5');
+                selectElement.classList.add('terCincuenta');
                 break;
             default:
-                selectElement.className = '';
                 break;
         }
+    });
 
-
-    })
-    const arrayCosts = priceMultiplier(); // array con el costo de cada item.
-
-    // Coste de cada producto
+    // Actualizamos el coste y el precio total
+    const arrayCosts = priceMultiplier(); // Array con el costo de cada item
     const cntCost = document.querySelectorAll('.table__cost');
     cntCost.forEach((cost, index) => {
         cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
     });
 
-    // PRECIO TOTAL
     const itemsTotalPrice = document.querySelector(".header__items");
     itemsTotalPrice.innerHTML = getTotalCost();
     updateTable();
@@ -355,6 +343,7 @@ export function eliminarElemento(index) {
 
     // Guardamos la lista actualizada
     localStorage.setItem(sessionId, JSON.stringify(listaCompra));
+    mostrarLista()
 }
 
 

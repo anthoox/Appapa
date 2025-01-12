@@ -1,5 +1,5 @@
 import { validateTextInput, validateInput } from "./validations.js";
-import { clearInputs, dateTime, getTotalCost, priceMultiplier, updateTable, agregarElemento, mostrarLista } from "./script.js";
+import { clearInputs, dateTime, getTotalCost, priceMultiplier, eliminarElemento, agregarElemento, mostrarLista, updateTable } from "./script.js";
 
 // FORMULARIO
 const btnAddList = document.getElementById("btn__addProduct");
@@ -281,7 +281,6 @@ document.addEventListener("keydown", function (event) {
 
 
 
-
 // LIMPIAR INPUT UNIDADES DE FORMULARIO
 // Vuelve el valor al 0 al seleccionar el input
 const inputUnit = document.getElementById('units');
@@ -310,3 +309,11 @@ setInterval(() => {
 }, 1000);
 
 
+
+document.querySelector("tbody").addEventListener("click", (event) => {
+    if (event.target.matches(".table__icon .del")) {
+        const row = event.target.closest("tr"); // Encuentra la fila
+        const index = Array.from(row.parentNode.children).indexOf(row); // Calcula el índice
+        eliminarElemento(index); // Llama a la función de eliminación
+    }
+});
