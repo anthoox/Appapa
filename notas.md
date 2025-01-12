@@ -16,7 +16,7 @@
     - sumar cantidades 👍
     - aplicar descuentos 👍
     - Obtener costes 👍
-- Almacenamiento de datos
+- Almacenamiento de datos,
 - Subir
 - pruebas
 - Mejorar estilos y diseño

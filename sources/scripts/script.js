@@ -196,3 +196,73 @@ export function updateTable(){
  
     })
 }
+
+// IDENTIFICADOR UNICO DE USUARIO --no exportado aun--
+export function generatorUUID(){
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        const r = Math.random() * 16 | 0; // Genera un número aleatorio
+        const v = c === 'x' ? r : (r & 0x3 | 0x8); // Calcula el carácter según el patrón
+        return v.toString(16); // Convierte el número en un carácter hexadecimal
+    });
+}
+
+// INICIAR SESIÓN --no exportado aun--
+export function startSesion() {
+    // Verificamos si ya existe un identificador único en el navegador
+    let sessionId = localStorage.getItem('sessionId');
+
+    // Si no existe, generamos uno y lo guardamos
+    if (!sessionId) {
+        sessionId = generatorUUID(); // Usamos la función de generación de UUID
+        localStorage.setItem('sessionId', sessionId);
+    }
+
+    console.log(`ID de sesión actual: ${sessionId}`);
+    return sessionId; // Retornamos el identificador de la sesión
+}
+
+export function agregarElemento(item, cantidad) {
+    const sessionId = inicializarSesion(); // Obtenemos el identificador de sesión
+
+    // Recuperamos la lista de compras actual o inicializamos una nueva
+    let listaCompra = JSON.parse(localStorage.getItem(sessionId)) || [];
+
+    // Agregamos el nuevo elemento a la lista
+    listaCompra.push({ item, cantidad });
+
+    // Guardamos la lista actualizada en LocalStorage
+    localStorage.setItem(sessionId, JSON.stringify(listaCompra));
+
+    console.log(`Elemento agregado: ${item}, Cantidad: ${cantidad}`);
+}
+
+export function mostrarLista() {
+    const sessionId = inicializarSesion(); // Obtenemos el identificador de sesión
+
+    // Recuperamos la lista asociada al navegador
+    const listaCompra = JSON.parse(localStorage.getItem(sessionId)) || [];
+
+    console.log('Lista de compras:', listaCompra);
+    return listaCompra;
+}
+
+export function eliminarElemento(index) {
+    const sessionId = inicializarSesion(); // Obtenemos el identificador de sesión
+
+    // Recuperamos la lista actual
+    let listaCompra = JSON.parse(localStorage.getItem(sessionId)) || [];
+
+    // Eliminamos el elemento según su índice
+    if (index >= 0 && index < listaCompra.length) {
+        listaCompra.splice(index, 1);
+        console.log(`Elemento en la posición ${index} eliminado.`);
+    } else {
+        console.error('Índice no válido.');
+    }
+
+    // Guardamos la lista actualizada
+    localStorage.setItem(sessionId, JSON.stringify(listaCompra));
+}
+
+
+
