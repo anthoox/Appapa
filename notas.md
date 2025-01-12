@@ -40,3 +40,4 @@
 - Que al dar en el input unidades del formulario se vacie. Si no se rellena tendrá valor 1. 👍
 - Establecer color de fondo de oferta en select de tabla 👍
 - Añadir boton en tabla para eliminar fila  👍
+- Adaptar el tamaño de la ventana  👍

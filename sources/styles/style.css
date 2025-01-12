@@ -92,6 +92,7 @@ main {
     position: relative;
     /* top: 80px; */
     height: calc(100% - 80px);
+    overflow: auto;
 }
 
 /* Estilos items de lista */
@@ -263,14 +264,14 @@ select {
 }
 
 .container__list .cnt__btns {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 300px;
 }
 
 /* FORMULARIO AÑADIR */
 .cnt__form {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0px;
     max-height: 600px;
