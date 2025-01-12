@@ -22,7 +22,6 @@
 - Eliminar fila desde tabla 👍
 - Subir
 - pruebas
-- Mejorar estilos y diseño
 - Optimizar código
     - crear funciones
     - eliminar estilos restantes
@@ -41,3 +40,4 @@
 - Establecer color de fondo de oferta en select de tabla 👍
 - Añadir boton en tabla para eliminar fila  👍
 - Adaptar el tamaño de la ventana  👍
+- Mejorar estilos y diseño
