@@ -176,6 +176,13 @@ th {
     justify-content: center;
 }
 
+.table__icon .del{
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
 tbody tr {
     margin-bottom: 5px;
     border-radius: .3rem;

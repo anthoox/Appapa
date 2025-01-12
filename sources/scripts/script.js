@@ -281,6 +281,11 @@ export function mostrarLista() {
         <!-- Coste a pagar -->
         <td>
             <span class="table__cost">10</span>
+        </td>
+         <td>
+            <div class="table__icon">
+                    <i class="del las la-times"></i>
+            </div>
         </td>`;
 
         tableBody.appendChild(itemTable);
