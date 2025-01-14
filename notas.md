@@ -22,13 +22,14 @@
 - Eliminar fila desde tabla 👍
 - Corregir errores 👍
     - Error al aplicar oferta  👍
+- Optimizar código
+    - Limpiar comentarios imnecesarios
+    - Eliminar console.log
 - Subir
 - Pruebas desplegado
 - Optimizar código
     - Mejorar o crear funciones
     - Eliminar estilos no aplicados
-    - Limpiar comentarios imnecesarios
-    - Eliminar console.log
 - Re-subir
 
 

@@ -42,11 +42,6 @@ export function getTotalCost(elem) {
         total = total.toFixed(2); // Convierte el número a una cadena con dos decimales
         const formattedTotal = `<h2>Total: ${total}</h2>`;
         return formattedTotal;
-        
-    // }else{
-        // console.log('probando')
-    // }
-    
 }
 
 // MULTIPLICAR CANTIDADES POR PRECIO
@@ -65,7 +60,6 @@ export function priceMultiplier() {
         );
         unitsInput.push(Number(row.querySelector(".input__units")?.value || 0));
         offerSelect.push(Number(row.querySelector("#tableOffers")?.value || 0));
-        console.log(row.querySelector("#tableOffers")?.value || 0)
     });
    
 
@@ -74,44 +68,35 @@ export function priceMultiplier() {
         const remainingOfTwo = Number(unitsInput[i] % 2);
         const groupsOfThree = Math.floor(unitsInput[i] / 3);
         const remainingOfThree = unitsInput[i] % 3;
-        // AÑADIR UNA VALIDACIÓN PARA CUANDO EL VALOR DEL SELECTOR SEA DISTINTO A 0
         switch(offerSelect[i]){
             case 0: 
-                console.log('Sin Descuento')
                 result.push(priceInput[i] * unitsInput[i]);
                 break;
             case 1:
-                console.log('Tres por Dos')
-                // Calcular el costo total con la oferta aplicada
                 const discountedCost =
-                    //grupos de 3 por 2 más lo que no este en la oferta por el precio
                     groupsOfThree * 2 * priceInput[i] + remainingOfThree * priceInput[i];
 
                 result.push(discountedCost);
                 break;
             case 2:
-                console.log('Dos por Uno')
                 const discountedOfTwo = 
                 groupsOfTwo  * priceInput[i] + remainingOfTwo * priceInput[i];
 
                 result.push(discountedOfTwo);
                 break;
             case 3:
-                console.log('Segunda Unidad al 70%');
                 const secondUnitDiscountSeventy =
                     (groupsOfTwo * (priceInput[i] + priceInput[i] * 0.7)) + 
                     (remainingOfTwo * priceInput[i]);
                 result.push(secondUnitDiscountSeventy);
                 break;
             case 4:
-                console.log('Segunda Unidad al 50%');
                 const secondUnitDiscountFifty =
                     (groupsOfTwo * (priceInput[i] + priceInput[i] * 0.5)) +
                     (remainingOfTwo * priceInput[i]);
                 result.push(secondUnitDiscountFifty);
                 break;
             case 5:
-                console.log('Tercera Unidad al 50%');
                 const thirdUnitDiscountFifty =
                     (groupsOfThree * ((2 * priceInput[i]) + (priceInput[i] * 0.5))) + (remainingOfThree * priceInput[i]);
                 result.push(thirdUnitDiscountFifty);
@@ -224,7 +209,6 @@ export function startSesion() {
         localStorage.setItem('sessionId', sessionId);
     }
 
-    // console.log(`ID de sesión actual: ${sessionId}`);
     return sessionId; // Retornamos el identificador de la sesión
 }
 
@@ -240,7 +224,6 @@ export function agregarElemento(item, cantidad, oferta) {
     // Guardamos la lista actualizada en LocalStorage
     localStorage.setItem(sessionId, JSON.stringify(listaCompra));
 
-    // console.log(`Precio: ${item}, Unidades: ${cantidad}, Oferta: ${oferta}` );
     
 }
 

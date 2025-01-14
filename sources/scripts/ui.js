@@ -73,73 +73,14 @@ btnAddProduct.addEventListener("click", () => {
     formDataArray.forEach((product) => {
         const tableBody = document.querySelector("tbody");
         tableBody.innerHTML = '';
-        // const itemTable = document.createElement("tr");
-        // itemTable.classList.add("table__row");
         const selectValue = product.selectOffers;
 
         agregarElemento(product.price, product.units, selectValue);
         mostrarLista();
 
-        // itemTable.innerHTML = `
-        //  <!-- Precio -->
-        // <td>
-        //     <input class="input__number left table__input " type="number" value="${product.price}">
-        // </td>
-        // <!-- Unidades -->
-        // <td>
-        //     <input class="input__units table__input" type="number" value="${product.units}">
-        // </td>
-        // <!-- Oferta -->
-        // <td>
-        //     <select name="" id="tableOffers">
-        //         <option class="table__option option " selected value="0">--</option>
-        //         <option class="table__option option tresPorDos" value="1">3x2</option>
-        //         <option class="table__option option dosPorUno" value="2">2x1</option>
-        //         <option class="table__option option segSetenta" value="3">2u70</option>
-        //         <option class="table__option option segCincuenta" value="4">2u50</option>
-        //         <option class="table__option option terCincuenta" value="5">3u50</option>
-        //     </select>
-        // </td>
-        // <!-- Coste a pagar -->
-        // <td>
-        //     <span class="table__cost">10</span>
-        // </td>`;
-
-        // tableBody.appendChild(itemTable);
-
-        // Selección de elemento select
-        // const selectElement = itemTable.querySelector("select");
-        // Asignación del valor seleccionado por el usuario
-        // selectElement.value = selectValue;
-
-        // switch (Number(selectValue)) {
-        //     case 1:
-        //         selectElement.classList.add('tresPorDos')
-        //         break;
-        //     case 2:
-        //         selectElement.classList.add('dosPorUno')
-        //         console.log('dato: 2');
-        //         break;
-        //     case 3:
-        //         selectElement.classList.add('segSetenta')
-        //         console.log('dato: 3');
-        //         break;
-        //     case 4: 
-        //         selectElement.classList.add('segCincuenta')
-        //         console.log('dato: 4');
-        //         break;
-        //     case 5:
-        //         selectElement.classList.add('terCincuenta')
-        //         console.log('dato: 5');
-        //         break;
-        // }
-        
-
     });
     
     
-    
-
     clearInputs();
 
     // Vaciar array para volver a generarlo vacio
@@ -151,22 +92,7 @@ btnAddProduct.addEventListener("click", () => {
     if (!formAddList.classList.contains("hidden")) {
         formAddList.classList.add("hidden");
     }
-    const arrayCosts = priceMultiplier(); // array con el costo de cada item.
-    
-    
-    
-    // // Coste de cada producto
-    // const cntCost = document.querySelectorAll('.table__cost');
-    // cntCost.forEach((cost, index) => {
-    //     cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
-    // });
 
-    // // PRECIO TOTAL
-    // const itemsTotalPrice = document.querySelector(".header__items");
-    // itemsTotalPrice.innerHTML = getTotalCost();
-    // // setTimeout(()=>{
-    //     updateTable();
-    // // }, 2000)
 });
 
 // Añadir items con la tecla Enter  -- añadir la configuración del anterior
@@ -212,42 +138,13 @@ document.addEventListener("keydown", function (event) {
         // Por cada producto se añade un nuevo elemento a la tabla
         formDataArray.forEach((product) => {
             const tableBody = document.querySelector("tbody");
-            const itemTable = document.createElement("tr");
-            itemTable.classList.add("table__row");
+            tableBody.innerHTML = '';
             const selectValue = product.selectOffers;
-            itemTable.innerHTML = `
-         <!-- Precio -->
-        <td>
-            <input class="input__number left table__input " type="number" value="${product.price}">
-        </td>
-        <!-- Unidades -->
-        <td>
-            <input class="input__units table__input" type="number" value="${product.units}">
-        </td>
-        <!-- Oferta -->
-        <td>
-            <select name="" id="tableOffers">
-                <option class="table__option option " selected value="0">--</option>
-                <option class="table__option option tresPorDos" value="1">3x2</option>
-                <option class="table__option option dosPorUno" value="2">2x1</option>
-                <option class="table__option option segSetenta" value="3">2u70</option>
-                <option class="table__option option segCincuenta" value="4">2u50</option>
-                <option class="table__option option terCincuenta" value="5">3u50</option>
-            </select>
-        </td>
-        <!-- Coste a pagar -->
-        <td>
-            <span class="table__cost">10</span>
-        </td>`;
 
-            tableBody.appendChild(itemTable);
+            agregarElemento(product.price, product.units, selectValue);
+            mostrarLista();
 
-            // Selección de elemento select
-            const selectElement = itemTable.querySelector("select");
-            // Asignación del valor seleccionado por el usuario
-            selectElement.value = selectValue;
         });
-
 
 
         clearInputs();
@@ -261,19 +158,7 @@ document.addEventListener("keydown", function (event) {
         if (!formAddList.classList.contains("hidden")) {
             formAddList.classList.add("hidden");
         }
-        const arrayCosts = priceMultiplier(); // Suponiendo que esta función devuelve un array de costos
 
-
-
-
-
-        const cntCost = document.querySelectorAll('.table__cost');
-        cntCost.forEach((cost, index) => {
-            cost.innerHTML = arrayCosts[index]; // Asignar el valor al elemento correspondiente
-        });
-        // PRECIO TOTAL
-        const itemsTotalPrice = document.querySelector(".header__items");
-        itemsTotalPrice.innerHTML = getTotalCost();
     }
 });
 
@@ -287,17 +172,11 @@ const inputUnit = document.getElementById('units');
 
 inputUnit.addEventListener('click', ()=>{
     inputUnit.value = '';
-    if (inputUnit) {
-        console.log('e')
-    }
 })
 // Deja el valor del input a 1 cuando se abandona el input y no se añade valor
 inputUnit.addEventListener('mouseleave', () =>{
     if(inputUnit.value === ''){
     inputUnit.value = 1;
-    }
-    else {
-        console.log('sdds')
     }
 })
 
