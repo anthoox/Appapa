@@ -65,9 +65,9 @@ export function priceMultiplier() {
         );
         unitsInput.push(Number(row.querySelector(".input__units")?.value || 0));
         offerSelect.push(Number(row.querySelector("#tableOffers")?.value || 0));
-
+        console.log(row.querySelector("#tableOffers")?.value || 0)
     });
-
+   
 
     for (let i = 0; i < priceInput.length; i++){
         const groupsOfTwo = Math.floor(unitsInput[i] / 2);
@@ -267,7 +267,7 @@ export function mostrarLista() {
         </td>
         <!-- Oferta -->
         <td>
-            <select name="" class="tableOffers">
+            <select  id="tableOffers">
                 <option class="table__option option" selected value="0">--</option>
                 <option class="table__option option tresPorDos" value="1">3x2</option>
                 <option class="table__option option dosPorUno" value="2">2x1</option>

@@ -20,12 +20,15 @@
     - guardar sesion y datos 👍
     - guardar datos modificados desde tabla 👍
 - Eliminar fila desde tabla 👍
+- Corregir errores 👍
+    - Error al aplicar oferta  👍
 - Subir
-- pruebas
+- Pruebas desplegado
 - Optimizar código
-    - crear funciones
-    - eliminar estilos restantes
-    - limpiar código
+    - Mejorar o crear funciones
+    - Eliminar estilos no aplicados
+    - Limpiar comentarios imnecesarios
+    - Eliminar console.log
 - Re-subir
 
 
@@ -41,3 +44,4 @@
 - Añadir boton en tabla para eliminar fila  👍
 - Adaptar el tamaño de la ventana  👍
 - Mejorar estilos y diseño
+    - que se pueda scrolear algo más la pantalla hacia abajo
