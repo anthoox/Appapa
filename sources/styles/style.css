@@ -45,7 +45,6 @@ body {
     padding: 5px;
     display: flex;
     align-items: center;
-    /* position: fixed; */
     width: 100%;
     height: 80px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
@@ -90,7 +89,6 @@ body {
 
 main {
     position: relative;
-    /* top: 80px; */
     height: calc(100% - 80px);
     overflow: auto;
 }
@@ -152,6 +150,7 @@ table {
     padding: 10px;
     display: block;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 tbody,
