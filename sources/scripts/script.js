@@ -106,6 +106,7 @@ export function priceMultiplier() {
         }
     }
 
+
     return result;
 }
 
@@ -301,7 +302,8 @@ export function mostrarLista() {
     const arrayCosts = priceMultiplier(); // Array con el costo de cada item
     const cntCost = document.querySelectorAll('.table__cost');
     cntCost.forEach((cost, index) => {
-        cost.textContent = arrayCosts[index]; // Asignar el valor al elemento correspondiente
+        cost.textContent = arrayCosts[index].toFixed(2); // Asignar el valor al elemento correspondiente
+
     });
 
     const itemsTotalPrice = document.querySelector(".header__items");

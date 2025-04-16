@@ -32,13 +32,15 @@ html {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    overflow: hidden;
     color: var(--texto_principal);
 }
 
 body {
     background-color: var(--fondo_claro);
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .header {
@@ -50,27 +52,6 @@ body {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
 }
 
-.header__btn {
-    /* display: none; */
-    position: absolute;
-}
-
-.header__btn .las {
-    font-size: 2rem;
-}
-
-.las {
-    cursor: pointer;
-    transition: transform 250ms ease;
-}
-
-.las:hover {
-    transform: scale(1.06);
-}
-
-.las:active {
-    transform: scale(0.85);
-}
 
 .header__title {
     width: 100%;
@@ -89,8 +70,8 @@ body {
 
 main {
     position: relative;
-    height: calc(100% - 80px);
-    overflow: auto;
+    height: 100%;
+    max-width: 500px;
 }
 
 /* Estilos items de lista */
@@ -150,7 +131,7 @@ table {
     padding: 10px;
     display: block;
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
 }
 
 tbody,
@@ -221,6 +202,7 @@ select {
 .table__cost {
     font-size: 1.25rem;
     color: var(--texto_principal);
+    font-weight: 700;
 }
 
 
